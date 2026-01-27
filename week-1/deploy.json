@@ -1,0 +1,16 @@
+{
+  "server": {
+    "port": 3000,
+    "host": "localhost",
+    "name": "MyServer",
+    "user": "admin",
+    "password": ""
+  },
+
+  "database": {
+    "type": "mongodb",
+    "host": "localhost",
+    "port": 27017,
+    "name": "mydatabase"
+  }
+}
