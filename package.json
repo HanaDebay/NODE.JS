@@ -1,0 +1,24 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/HanaDebay/NODE.JS#readme",
+  "bugs": {
+    "url": "https://github.com/HanaDebay/NODE.JS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HanaDebay/NODE.JS.git"
+  },
+  "license": "ISC",
+  "author": "Hana",
+  "type": "commonjs",
+  "main": "node --watch express-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

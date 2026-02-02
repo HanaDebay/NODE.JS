@@ -1,33 +1,48 @@
+const fs = require("fs/promises")
+
 class Sale {
-    constructor(amount, quantity, item, date , currency){
-        this.amount = amount;
-        this.quantity = quantity;
-        this.item = item;
-        this.date = date;
-        this.currency = currency;
+    constructor(path="./week-1/sale.json"){
+        
+        this.path = path
+        this.sales = []
+        fs.readFile(this.path)
+        .then((data, err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                this.sales = JSON.parse(data)
+            }
+        })
+
+
     }
 
-    getTotal(){
-        return this.amount * this.quantity;
+    getAllSales(){
+        return this.sales
     }
 
-    getUnitCost(){
-        if(this.quantity === 0){
-            return 0;
-            return this.amount / this.quantity;
-        }
+    add(sale){
+        this.sales.push(sale)
+    }
+
+   async save() {
+    try {
+        await fs.writeFile(
+            this.path,
+            JSON.stringify(this.sales) 
+        );
+        return true; 
+    } catch (error) {
+        console.error("Error saving sales:", error);
+        return false; 
     }
 }
 
-class CreaditSale extends Sale {
-    constructor(amount, quantity, item, date, currency, dueDate){
-        super (amount, quantity, item, date, currency);
-        this.dueDate = dueDate;
-    }
-
-    getAmountDue(){
-        return 0;
-}
+    
 }
 
-module.exports = Sale;
+
+
+
+
+module.exports = {Sale};
